@@ -17,7 +17,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "php": ">= 7.3",
+        "ext-xdebug": "^2.7"
+    },
     "autoload": {
         "psr-4": {
             "In2it\\Drinks\\": "src/"
