@@ -8,28 +8,16 @@ before_script:
 
 jobs:
   include:
-    - stage: "Prepare"
-      name: "Prepare the environment"
+    - stage: "Quality"
+      name: "Run a quality pipeline"
       script:
         - mkdir -p build/logs
         - cp phpcs.xml.dist phpcs.xml
         - cp phpunit.xml.dist phpunit.xml
         - cp infection.json.dist infection.json
         - cp psalm.xml.dist psalm.xml
-
-    - stage: "Standards"
-      name: "Ensuring we are adhering to the coding standards"
-      script:
         - vendor/bin/phpcs
-
-    - stage: "Tests"
-      name: "Running automated tests"
-      script:
         - vendor/bin/phpunit
         - vendor/bin/infection --configuration=infection.json --min-covered-msi=85
-
-    - stage: "Bugs"
-      name: "Finding bugs through static analyses"
-      script:
         - vendor/bin/psalm
         - vendor/bin/phpstan analyse src --level 3
