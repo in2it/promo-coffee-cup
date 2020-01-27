@@ -23,13 +23,13 @@ jobs:
         - vendor/bin/phpcs
 
     - stage: "Tests"
-        name: "Running automated tests"
-        script:
-          - vendor/bin/phpunit
-          - vendor/bin/infection --configuration=infection.json --min-covered-msi=85
+      name: "Running automated tests"
+      script:
+        - vendor/bin/phpunit
+        - vendor/bin/infection --configuration=infection.json --min-covered-msi=85
 
     - stage: "Bugs"
-        name: "Finding bugs through static analyses"
-        script:
-          - vendor/bin/psalm
-          - vendor/bin/phpstan analyse src --level 3
+      name: "Finding bugs through static analyses"
+      script:
+        - vendor/bin/psalm
+        - vendor/bin/phpstan analyse src --level 3
