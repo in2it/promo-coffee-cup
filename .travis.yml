@@ -1,5 +1,6 @@
 dist: trusty
 language: php
+os: linux
 php:
   - 7.3
   - 7.4
@@ -7,18 +8,14 @@ php:
 before_script:
   - composer install --prefer-source --no-interaction
 
-jobs:
-  include:
-    - stage: "Quality"
-      name: "Run a quality pipeline"
-      script:
-        - mkdir -p build/logs
-        - cp phpcs.xml.dist phpcs.xml
-        - cp phpunit.xml.dist phpunit.xml
-        - cp infection.json.dist infection.json
-        - cp psalm.xml.dist psalm.xml
-        - vendor/bin/phpcs
-        - vendor/bin/phpunit
-        - vendor/bin/infection --configuration=infection.json --min-covered-msi=85
-        - vendor/bin/psalm
-        - vendor/bin/phpstan analyse src --level 3
+script:
+  - mkdir -p build/logs
+  - cp phpcs.xml.dist phpcs.xml
+  - cp phpunit.xml.dist phpunit.xml
+  - cp infection.json.dist infection.json
+  - cp psalm.xml.dist psalm.xml
+  - vendor/bin/phpcs
+  - vendor/bin/phpunit
+  - vendor/bin/infection --configuration=infection.json --min-covered-msi=85
+  - vendor/bin/psalm
+  - vendor/bin/phpstan analyse src --level 3
