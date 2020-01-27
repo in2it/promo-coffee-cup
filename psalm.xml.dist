@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<psalm
+    totallyTyped="true"
+    requireVoidReturnType="false"
+    checkForThrowsDocblock="true"
+    checkForThrowsInGlobalScope="false"
+    findUnusedVariablesAndParams="true"
+    findUnusedCode="true"
+    ensureArrayStringOffsetsExist="true"
+>
+    <projectFiles>
+        <directory name="src" />
+        <directory name="example" />
+    </projectFiles>
+</psalm>
