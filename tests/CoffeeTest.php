@@ -12,7 +12,7 @@ class CoffeeTest extends TestCase
      * @covers \In2it\Drinks\Coffee::__construct
      * @covers \In2it\Drinks\Coffee::isEmpty
      */
-    public function testCoffeeIsFilledAtConstruct()
+    public function testCoffeeIsFilledAtConstruct(): void
     {
         $coffee = new Coffee();
         $this->assertFalse($coffee->isEmpty());
@@ -22,7 +22,7 @@ class CoffeeTest extends TestCase
      * @covers \In2it\Drinks\Coffee::__construct
      * @covers \In2it\Drinks\Coffee::refill
      */
-    public function testCoffeeCanNotBeRefilledWhileFull()
+    public function testCoffeeCanNotBeRefilledWhileFull(): void
     {
         $this->expectException(\DomainException::class);
         $coffee = new Coffee();
@@ -34,7 +34,7 @@ class CoffeeTest extends TestCase
      * @covers \In2it\Drinks\Coffee::__construct
      * @covers \In2it\Drinks\Coffee::drink
      */
-    public function testCanNotDrinkFromAnEmptyCoffee()
+    public function testCanNotDrinkFromAnEmptyCoffee(): void
     {
         $this->expectException(\DomainException::class);
         $coffee = new Coffee();
@@ -48,7 +48,7 @@ class CoffeeTest extends TestCase
      * @covers \In2it\Drinks\Coffee::drink
      * @covers \In2it\Drinks\Coffee::isEmpty
      */
-    public function testCoffeeEmptiesWhenPeopleDrinkFromIt()
+    public function testCoffeeEmptiesWhenPeopleDrinkFromIt(): void
     {
         $coffee = new Coffee();
         $coffee->drink();
@@ -61,7 +61,7 @@ class CoffeeTest extends TestCase
      * @covers \In2it\Drinks\Coffee::refill
      * @covers \In2it\Drinks\Coffee::isEmpty
      */
-    public function testCoffeeIsFullAfterRefill()
+    public function testCoffeeIsFullAfterRefill(): void
     {
         $coffee = new Coffee();
         $coffee->drink();
